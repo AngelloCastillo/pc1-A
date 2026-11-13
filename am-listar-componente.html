@@ -1,0 +1,54 @@
+<section class="contenedor">
+  <h2>Listado de huellas de carbono</h2>
+
+  <div class="tabla-scroll">
+    <table mat-table [dataSource]="huellas()">
+      <ng-container matColumnDef="idCarbonFootprint">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let e">{{ e.idCarbonFootprint }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="aiModelName">
+        <th mat-header-cell *matHeaderCellDef>Modelo de IA</th>
+        <td mat-cell *matCellDef="let e">{{ e.aiModelName }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="energyConsumption">
+        <th mat-header-cell *matHeaderCellDef>Consumo (kWh)</th>
+        <td mat-cell *matCellDef="let e">{{ e.energyConsumption | number: '1.0-2' }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="numberOfRequests">
+        <th mat-header-cell *matHeaderCellDef>Solicitudes</th>
+        <td mat-cell *matCellDef="let e">{{ e.numberOfRequests }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="measurementDate">
+        <th mat-header-cell *matHeaderCellDef>Fecha</th>
+        <td mat-cell *matCellDef="let e">{{ e.measurementDate }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="measurementTime">
+        <th mat-header-cell *matHeaderCellDef>Hora</th>
+        <td mat-cell *matCellDef="let e">{{ e.measurementTime }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef>Eliminar</th>
+        <td mat-cell *matCellDef="let e">
+          <button
+            mat-icon-button
+            class="btn-eliminar"
+            aria-label="Eliminar huella de carbono"
+            (click)="eliminar(e.idCarbonFootprint)"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+      <tr mat-row *matRowDef="let row; columns: columnas"></tr>
+    </table>
+  </div>
+</section>

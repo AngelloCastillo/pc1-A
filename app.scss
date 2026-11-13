@@ -1,0 +1,22 @@
+mat-toolbar {
+  --mat-toolbar-container-background-color: var(--color-turquesa);
+  --mat-toolbar-container-text-color: var(--color-azul-oscuro);
+  border-bottom: 4px solid var(--color-rojo);
+}
+
+.titulo {
+  font-weight: 500;
+}
+
+.espacio {
+  flex: 1 1 auto;
+}
+
+a[mat-button] {
+  color: var(--color-azul-oscuro);
+  margin-left: 8px;
+}
+
+a[mat-button].activo {
+  background-color: var(--color-amarillo);
+}

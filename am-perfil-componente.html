@@ -1,0 +1,15 @@
+<section class="perfil">
+  <mat-card class="tarjeta">
+    <img class="foto" [src]="estudiante.foto" alt="Fotografía del estudiante" />
+    <h2 class="nombre">{{ estudiante.nombre }}</h2>
+    <p><strong>Carrera:</strong> {{ estudiante.carrera }}</p>
+    <p><strong>Ciclo:</strong> {{ estudiante.ciclo }}</p>
+
+    <h3>Skills</h3>
+    <mat-chip-set class="skills">
+      @for (skill of estudiante.skills; track skill) {
+        <mat-chip>{{ skill }}</mat-chip>
+      }
+    </mat-chip-set>
+  </mat-card>
+</section>
